@@ -6,18 +6,22 @@
 libmoon started out as the packet generator [MoonGen](https://github.com/emmericp/MoonGen.git) which evolved into a more general framework for packet processing.
 
 ## Installation for libmoon
-Note that we should git clone the libmoon repository under the dpdk-19.05 branch; otherwise, some mistakes will appear owing to the header file being missing. 
 ```shell
-git clone https://github.com/libmoon/libmoon.git --branch=dpdk-19.05
+git clone https://github.com/libmoon/libmoon.git
 cd libmoon
+git checkout dpdk-19.05
+git submodule update --init
 ./build.sh
 ```
 
+Note that: when using the gcc version after 7.0 to build DPDK (libmoon uses DPDK up to 19.08), there will appear "fallthrough" warnings being treated as errors. we need to manually add '-w' to 'CFLAGS' in the makefiles included within both the directory "yourPath2dpdk/kernel/linux/kni/Makefile" and the directory "yourPath2dpdk/kernel/linux/igb_uio/Makefile".
+
 ## Installation for MoonGen
 ```shell
-git clone https://github.com/emmericp/MoonGen.git --branch=dpdk-19.05
-rm -fr libmoon
-git clone https://github.com/libmoon/libmoon.git --branch=dpdk-19.05
-cd libmoon
-./build.sh ../build --moongen
+git clone https://github.com/emmericp/MoonGen.git
+git checkout dpdk-19.05
+git submodule update --init
+./build.sh
 ```
+
+Note that: as the same to the libmoon installation.
