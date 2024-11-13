@@ -14,7 +14,7 @@ git submodule update --init
 ./build.sh
 ```
 
-Note that: when using the gcc version after 7.0 to build DPDK (libmoon uses DPDK up to 19.08), there will appear "fallthrough" warnings being treated as errors. we need to manually add '-w' to 'CFLAGS' in the makefiles included within both the directory "yourPath2dpdk/kernel/linux/kni/Makefile" and the directory "yourPath2dpdk/kernel/linux/igb_uio/Makefile".
+Note that: when using the gcc version after 7.0 to build DPDK (libmoon uses DPDK version up to 19.08), there will appear "fallthrough" warnings being treated as errors. we need to manually add '-w' to 'CFLAGS' in the makefiles included within both the directory "yourPath2dpdk/kernel/linux/kni/Makefile" and the directory "yourPath2dpdk/kernel/linux/igb_uio/Makefile".
 
 ## Installation for MoonGen
 ```shell
